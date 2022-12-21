@@ -89,13 +89,7 @@
                                         </li>
                                         
                                         
-                                         <li><a><i class="fa fa-bug"></i>ข้อมูลการแจ้งซ่อม<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                            
-                                                <li><a href="show_repair.php"><i class="fa fa-file-text"></i>แสดงข้อมูลการซ่อม</a></li>
-                                            </ul>
-                                        </li>
-                                        
+                                                                                
                                         
                                         
                                          

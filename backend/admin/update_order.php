@@ -14,8 +14,30 @@
                 <div class="x_content">
                     <br />
 
-
+                    <?php
+                        if(isset($_GET['id']))
+                        {
+                            $id=$_GET['id'];
+                            
+                            $sql=" select * from tb_order";
+                            $sql.=" where";
+                            $sql.=" order_id='$id'";
+                            $result=$cls_conn->select_base($sql);
+                            while($row=mysqli_fetch_array($result))
+                            {
+                                 $order_id=$row['order_id'];
+                                 $order_detail=$row['order_detail'];
+                                 $order_quantity=$row['order_quantity'];
+                                 $order_weight=$row['order_weight'];
+                                 $order_date=$row['order_date'];
+                                 $order_time=$row['order_time'];
+                                
+                                
+                            }
+                        }
+                        ?>
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+                    <input type="hidden" name="order_id" value="<?=$order_id;?>" />
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_id">ชื่อผู้ลงข้อมูล<span class="required">:</span> </label>
@@ -66,35 +88,35 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_detail">ข้อมูลออเดอร์<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="order_detail" name="order_detail" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="order_detail" name="order_detail" required="required" value="<?= $order_detail; ?>" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_quantity">จำนวน<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="order_quantity" name="order_quantity" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="number" id="order_quantity" name="order_quantity" required="required" value="<?= $order_quantity; ?>" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_weight">น้ำหนัก<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="order_weight" name="order_weight" required="required" class="form-control col-md-7 col-xs-12" onChange=onChange()>
+                                <input type="number" id="order_weight" name="order_weight" required="required" value="<?= $order_weight; ?>" class="form-control col-md-7 col-xs-12" onChange=onChange()>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_date">วันที่ส่ง<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="date" id="order_date" name="order_date" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="date" id="order_date" name="order_date" required="required" value="<?= $order_date; ?>" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_time">เวลาที่ส่ง<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="time" id="order_time" name="order_time" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="time" id="order_time" name="order_time" required="required" value="<?= $order_time; ?>" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
 

@@ -4,7 +4,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>ลบข้อมูลประเภทปัญหา</h2>
+                        <h2>ลบข้อมูลลูกค้า</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a> </li>
@@ -19,14 +19,14 @@
                             $id=$_GET['id'];
                             
                           
-                            $sql=" delete from tb_problemtype";
+                            $sql=" delete from tb_customers";
                             $sql.=" where";
-                            $sql.=" problemtype_id='$id'";
+                            $sql.=" customers_id='$id'";
                             
                             if($cls_conn->write_base($sql)==true)
                             {
                                 echo $cls_conn->show_message('ลบข้อมูลสำเร็จ');
-                                echo $cls_conn->goto_page(1,'show_problemtype.php');
+                                echo $cls_conn->goto_page(1,'show_customer.php');
                             }
                             else
                             {

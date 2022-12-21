@@ -4,7 +4,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>แก้ไขข้อมูลประเภทปัญหา</h2>
+                        <h2>แก้ไขข้อมูลลูกค้า</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a> </li>
@@ -13,33 +13,50 @@
                     </div>
                     <div class="x_content">
                         <br />
-                          <?php
+                        <?php
                         if(isset($_GET['id']))
                         {
                             $id=$_GET['id'];
                             
-                            $sql=" select * from tb_problemtype";
+                            $sql=" select * from tb_customers";
                             $sql.=" where";
-                            $sql.=" problemtype_id='$id'";
+                            $sql.=" customers_id='$id'";
                             $result=$cls_conn->select_base($sql);
                             while($row=mysqli_fetch_array($result))
                             {
-                                 $problemtype_id=$row['problemtype_id'];
-                                 $problemtype_name=$row['problemtype_name'];
+                                 $customers_id=$row['customers_id'];
+                                 $customers_name=$row['customers_name'];
+                                 $customers_tel=$row['customers_tel'];
+                                 $customers_address=$row['customers_address'];
                                 
                                 
                             }
                         }
                         ?>
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
-                          <input type="hidden" name="problemtype_id" value="<?=$problemtype_id;?>" />        
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="problemtype_name">ชื่อประเภทปัญหา<span class="required">:</span> </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="problemtype_name" name="problemtype_name" required="required" class="form-control col-md-7 col-xs-12"> </div>
-                        </div>
+                        <input type="hidden" name="customers_id" value="<?=$customers_id;?>" />
                             
-                          
+                            
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customers_name">ชื่อลูกค้า<span class="required">:</span> </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="customers_name" name="customers_name" value="<?=$customers_name;?>" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                        </div>
+                           
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customers_tel">เบอร์ติดต่อลูกค้า<span class="required">:</span> </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="customers_tel" name="customers_tel" value="<?=$customers_tel;?>"   required="required" class="form-control col-md-7 col-xs-12"> </div>
+                        </div> 
+                            
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="customers_address">ที่อยู่ลูกค้า<span class="required">:</span> </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="customers_address" name="customers_address" value="<?=$customers_address;?>"  required="required" class="form-control col-md-7 col-xs-12"> </div>
+                        </div> 
+                        
+                            
+                            
 
                     
                             
@@ -55,24 +72,24 @@
                         <?php
                         if(isset($_POST['submit']))
                         {
-                            $problemtype_id=$_POST['problemtype_id'];
-                            $problemtype_name=$_POST['problemtype_name'];
-                          
+                            $customers_id=$_POST['customers_id'];
+                            $customers_name=$_POST['customers_name'];
+                            $customers_tel=$_POST['customers_tel'];
+                            $customers_address=$_POST['customers_address'];
+                        
                             
-                            
-                            
-                            $sql=" update tb_problemtype";
+                            $sql=" update tb_customers";
                             $sql.=" set";
-                            $sql.=" problemtype_name='$problemtype_name'";                           
+                            $sql.=" customers_name='$customers_name'";
+                            $sql.=" ,customers_tel='$customers_tel'";
+                            $sql.=" ,customers_address='$customers_address'";
                             $sql.=" where";
-                            $sql.=" problemtype_id='$problemtype_id'";
-                            
-                            
+                            $sql.=" customers_id='$customers_id'";
                             
                             if($cls_conn->write_base($sql)==true)
                             {
                                 echo $cls_conn->show_message('บันทึกข้อมูลสำเร็จ');
-                                echo $cls_conn->goto_page(1,'show_problemtype.php');
+                                echo $cls_conn->goto_page(1,'show_customer.php');
                             }
                             else
                             {

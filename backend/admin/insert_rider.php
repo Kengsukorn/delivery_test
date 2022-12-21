@@ -4,7 +4,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>เพิ่มข้อมูลผู้ดูแลระบบ</h2>
+                        <h2>เพิ่มข้อมูลไรด์เดอร์</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a> </li>
@@ -16,33 +16,33 @@
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_fullname">ชื่อผู้ดูแลระบบ<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_name">ชื่อไรด์เดอร์<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_fullname" name="admin_fullname" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="rider_name" name="rider_name" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div>
-                            
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_email">อีเมลล์ผู้ดูแลระบบ<span class="required">:</span> </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_email" name="admin_email" required="required" class="form-control col-md-7 col-xs-12"> </div>
-                        </div>   
                            
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_tel">เบอร์ติดต่อผู้ดูแลระบบ<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_tel">เบอร์ติดต่อไรด์เดอร์<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_tel" name="admin_tel" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="rider_tel" name="rider_tel" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_username">Username<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_username">Username<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_username" name="admin_username" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="rider_username" name="rider_username" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_password">Password<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_password">Password<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="password" id="admin_password" name="admin_password" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="password" id="rider_password" name="rider_password" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_rateprice">ราคา/กิโล<span class="required">:</span> </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="rider_rateprice" name="rider_rateprice" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
                             
@@ -61,21 +61,21 @@
                         <?php
                         if(isset($_POST['submit']))
                         {
-                            $admin_fullname=$_POST['admin_fullname'];
-                            $admin_email=$_POST['admin_email'];
-                            $admin_tel=$_POST['admin_tel'];
-                            $admin_username=$_POST['admin_username'];
-                            $admin_password=$_POST['admin_password'];
+                            $rider_name=$_POST['rider_name'];
+                            $rider_tel=$_POST['rider_tel'];
+                            $rider_username=$_POST['rider_username'];
+                            $rider_password=$_POST['rider_password'];
+                            $rider_rateprice=$_POST['rider_rateprice'];
                         
                             
-                            $sql=" insert into tb_admin (admin_fullname,admin_email,admin_tel,admin_username,admin_password)";
-                            $sql.=" values ('$admin_fullname','$admin_email','$admin_tel','$admin_username','$admin_password')";
+                            $sql=" insert into tb_rider (rider_name,rider_tel,rider_username,rider_password,rider_rateprice)";
+                            $sql.=" values ('$rider_name','$rider_tel','$rider_username','$rider_password','$rider_rateprice')";
                             
                             
                             if($cls_conn->write_base($sql)==true)
                             {
                                 echo $cls_conn->show_message('บันทึกข้อมูลสำเร็จ');
-                                echo $cls_conn->goto_page(1,'show_admin.php');
+                                echo $cls_conn->goto_page(1,'show_rider.php');
                             }
                             else
                             {

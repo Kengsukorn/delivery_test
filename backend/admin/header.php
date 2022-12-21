@@ -39,7 +39,7 @@
                 <div class="main_container">
                     <div class="col-md-3 left_col">
                         <div class="left_col scroll-view">
-                            <div class="navbar nav_title" style="border: 0;" align="center"><img src="../../image/logo.jpg" width="145px" height="70px" /><span></span> </div>
+                            <div class="navbar nav_title" style="border: 0;" align="center"><img src="../../image/logo.jpg" width="100%" height="70px" style="object-fit: cover;"/><span></span> </div>
                             <div class="clearfix"></div>
                             <!-- menu profile quick info -->
                             <div class="profile clearfix" style="margin-left:20px;" >
@@ -65,34 +65,26 @@
                                         </li>
                                         
                                         
-                                          <li><a><i class="fa fa-slideshare"></i>ข้อมูลแผนก<span class="fa fa-chevron-down"></span></a>
+                                          <li><a><i class="fa fa-slideshare"></i>ข้อมูลไรด์เดอร์<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="insert_department.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลแผนก</a></li>
-                                                <li><a href="show_department.php"><i class="fa fa-file-text"></i>แสดงข้อมูลแผนก</a></li>
+                                                <li><a href="insert_rider.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลไรด์เดอร์</a></li>
+                                                <li><a href="show_rider.php"><i class="fa fa-file-text"></i>แสดงข้อมูลไรด์เดอร์</a></li>
                                             </ul>
                                         </li>
                                         
                                         
-                                         <li><a><i class="fa fa-building"></i>ข้อมูลอาคาร<span class="fa fa-chevron-down"></span></a>
+                                         <li><a><i class="fa fa-building"></i>ข้อมูลลูกค้า<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="insert_building.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลอาคาร</a></li>
-                                                <li><a href="show_building.php"><i class="fa fa-file-text"></i>แสดงข้อมูลอาคาร</a></li>
+                                                <li><a href="insert_customer.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลลูกค้า</a></li>
+                                                <li><a href="show_customer.php"><i class="fa fa-file-text"></i>แสดงข้อมูลลูกค้า</a></li>
                                             </ul>
                                         </li>
                                         
                                         
-                                          <li><a><i class="fa fa-wrench"></i>ข้อมูลประเภทปัญหา<span class="fa fa-chevron-down"></span></a>
+                                          <li><a><i class="fa fa-wrench"></i>ข้อมูลออเดอร์<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="insert_problemtype.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลประเภทปัญหา</a></li>
-                                                <li><a href="show_problemtype.php"><i class="fa fa-file-text"></i>แสดงข้อมูลประเภทปัญหา</a></li>
-                                            </ul>
-                                        </li>
-                                        
-                                        
-                                        <li><a><i class="fa fa-exclamation"></i>ข้อมูลสถานะ<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="insert_status.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลสถานะ</a></li>
-                                                <li><a href="show_status.php"><i class="fa fa-file-text"></i>แสดงข้อมูลสถานะ</a></li>
+                                                <li><a href="insert_order.php"><i class="fa fa-plus"></i>เพิ่มข้อมูลออเดอร์</a></li>
+                                                <li><a href="show_order.php"><i class="fa fa-file-text"></i>แสดงข้อมูลออเดอร์</a></li>
                                             </ul>
                                         </li>
                                         

@@ -4,7 +4,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>แก้ไขข้อมูลผู้ดูแลระบบ</h2>
+                        <h2>แก้ไขข้อมูลไรด์เดอร์</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a> </li>
@@ -18,50 +18,56 @@
                         {
                             $id=$_GET['id'];
                             
-                            $sql=" select * from tb_admin";
+                            $sql=" select * from tb_rider";
                             $sql.=" where";
-                            $sql.=" admin_id='$id'";
+                            $sql.=" rider_id='$id'";
                             $result=$cls_conn->select_base($sql);
                             while($row=mysqli_fetch_array($result))
                             {
-                                 $admin_id=$row['admin_id'];
-                                 $admin_name=$row['admin_name'];
-                                 $admin_tel=$row['admin_tel'];
-                                 $admin_username=$row['admin_username'];
-                                 $admin_password=$row['admin_password'];
+                                 $rider_id=$row['rider_id'];
+                                 $rider_name=$row['rider_name'];
+                                 $rider_tel=$row['rider_tel'];
+                                 $rider_username=$row['rider_username'];
+                                 $rider_password=$row['rider_password'];
+                                 $rider_rateprice=$row['rider_rateprice'];
                                 
                                 
                             }
                         }
                         ?>
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
-                        <input type="hidden" name="admin_id" value="<?=$admin_id;?>" />
+                        <input type="hidden" name="rider_id" value="<?=$rider_id;?>" />
                             
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_fullname">ชื่อผู้ดูแลระบบ<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_name">ชื่อผู้ไรด์เดอร์<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_fullname" name="admin_name" value="<?=$admin_name;?>" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="rider_name" name="rider_name" value="<?=$rider_name;?>" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div>
                            
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_tel">เบอร์ติดต่อผู้ดูแลระบบ<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_tel">เบอร์ติดต่อไรด์เดอร์<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_tel" name="admin_tel" value="<?=$admin_tel;?>"   required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="number" id="rider_tel" name="rider_tel" value="<?=$rider_tel;?>"   required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_username">Username<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_username">Username<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_username" name="admin_username" value="<?=$admin_username;?>"  required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="rider_username" name="rider_username" value="<?=$rider_username;?>"  required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_password">Password<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rider_password">Password<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="password" id="admin_password" name="admin_password" value="<?=$admin_password;?>"  required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="password" id="rider_password" name="rider_password" value="<?=$rider_password;?>"  required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div> 
                             
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_tel">ราคา/กิโล<span class="required">:</span> </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="rider_rateprice" name="rider_rateprice" value="<?=$rider_rateprice;?>"   required="required" class="form-control col-md-7 col-xs-12"> </div>
+                        </div> 
                             
 
                     
@@ -78,26 +84,28 @@
                         <?php
                         if(isset($_POST['submit']))
                         {
-                            $admin_id=$_POST['admin_id'];
-                            $admin_name=$_POST['admin_name'];
-                            $admin_tel=$_POST['admin_tel'];
-                            $admin_username=$_POST['admin_username'];
-                            $admin_password=$_POST['admin_password'];
+                            $rider_id=$_POST['rider_id'];
+                            $rider_name=$_POST['rider_name'];
+                            $rider_tel=$_POST['rider_tel'];
+                            $rider_username=$_POST['rider_username'];
+                            $rider_password=$_POST['rider_password'];
+                            $rider_rateprice=$_POST['rider_rateprice'];
                         
                             
-                            $sql=" update tb_admin";
+                            $sql=" update tb_rider";
                             $sql.=" set";
-                            $sql.=" admin_name='$admin_name'";
-                            $sql.=" ,admin_tel='$admin_tel'";
-                            $sql.=" ,admin_username='$admin_username'";
-                            $sql.=" ,admin_password='$admin_password'";
+                            $sql.=" rider_name='$rider_name'";
+                            $sql.=" ,rider_tel='$rider_tel'";
+                            $sql.=" ,rider_username='$rider_username'";
+                            $sql.=" ,rider_password='$rider_password'";
+                            $sql.=" ,rider_rateprice='$rider_rateprice'";
                             $sql.=" where";
-                            $sql.=" admin_id='$admin_id'";
+                            $sql.=" rider_id='$rider_id'";
                             
                             if($cls_conn->write_base($sql)==true)
                             {
                                 echo $cls_conn->show_message('บันทึกข้อมูลสำเร็จ');
-                                echo $cls_conn->goto_page(1,'show_admin.php');
+                                echo $cls_conn->goto_page(1,'show_rider.php');
                             }
                             else
                             {

@@ -83,7 +83,7 @@
                     if($num>=1)
                     {
                         echo $cls_conn->show_message('Login Success');
-                        echo $cls_conn->goto_page(1,'backend/admin/index.php');
+                        echo $cls_conn->goto_page(0.3,'backend/admin/index.php');
                     }
                     else
                     {

@@ -16,16 +16,10 @@
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
                             
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_fullname">ชื่อผู้ดูแลระบบ<span class="required">:</span> </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_name">ชื่อผู้ดูแลระบบ<span class="required">:</span> </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_fullname" name="admin_fullname" required="required" class="form-control col-md-7 col-xs-12"> </div>
+                                <input type="text" id="admin_fullname" name="admin_name" required="required" class="form-control col-md-7 col-xs-12"> </div>
                         </div>
-                            
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_email">อีเมลล์ผู้ดูแลระบบ<span class="required">:</span> </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="admin_email" name="admin_email" required="required" class="form-control col-md-7 col-xs-12"> </div>
-                        </div>   
                            
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="admin_tel">เบอร์ติดต่อผู้ดูแลระบบ<span class="required">:</span> </label>
